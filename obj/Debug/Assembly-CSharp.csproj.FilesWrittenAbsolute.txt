@@ -1,0 +1,17 @@
+/Users/ShuyaInada/Desktop/Program/Unity/GrandfatherQuest/Temp/bin/Debug/UnityEngine.dll
+/Users/ShuyaInada/Desktop/Program/Unity/GrandfatherQuest/Temp/bin/Debug/UnityEditor.dll
+/Users/ShuyaInada/Desktop/Program/Unity/GrandfatherQuest/Temp/bin/Debug/UnityEngine.Networking.dll
+/Users/ShuyaInada/Desktop/Program/Unity/GrandfatherQuest/Temp/bin/Debug/UnityEngine.UI.dll
+/Users/ShuyaInada/Desktop/Program/Unity/GrandfatherQuest/Temp/bin/Debug/Mono.Cecil.dll
+/Users/ShuyaInada/Desktop/Program/Unity/GrandfatherQuest/Temp/bin/Debug/Unity.SerializationLogic.dll
+/Users/ShuyaInada/Desktop/Program/Unity/GrandfatherQuest/Temp/bin/Debug/Unity.DataContract.dll
+/Users/ShuyaInada/Desktop/Program/Unity/GrandfatherQuest/Temp/bin/Debug/ICSharpCode.NRefactory.dll
+/Users/ShuyaInada/Desktop/Program/Unity/GrandfatherQuest/Temp/bin/Debug/Unity.UNetWeaver.dll
+/Users/ShuyaInada/Desktop/Program/Unity/GrandfatherQuest/Temp/bin/Debug/Unity.UNetWeaver.dll.mdb
+/Users/ShuyaInada/Desktop/Program/Unity/GrandfatherQuest/Temp/bin/Debug/Unity.CecilTools.dll
+/Users/ShuyaInada/Desktop/Program/Unity/GrandfatherQuest/Temp/bin/Debug/Mono.Cecil.Pdb.dll
+/Users/ShuyaInada/Desktop/Program/Unity/GrandfatherQuest/Temp/bin/Debug/Mono.Cecil.Mdb.dll
+/Users/ShuyaInada/Desktop/Program/Unity/GrandfatherQuest/Temp/bin/Debug/Assembly-CSharp.dll.mdb
+/Users/ShuyaInada/Desktop/Program/Unity/GrandfatherQuest/Temp/bin/Debug/Assembly-CSharp.dll
+/Users/ShuyaInada/Desktop/Program/Unity/GrandfatherQuest/obj/Debug/Assembly-CSharp.dll
+/Users/ShuyaInada/Desktop/Program/Unity/GrandfatherQuest/obj/Debug/Assembly-CSharp.dll.mdb
