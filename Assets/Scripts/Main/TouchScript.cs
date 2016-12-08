@@ -27,6 +27,8 @@ public class TouchScript : BaseScript {
 
 	const int INF = 100000;
 	private Vector3 touchPos;
+	private Color defaultColor; //= linePrefab.gameObject.GetComponent<SpriteRenderer>().color;
+	private Color clr;
 
 	//バブルを動かす
 	private GameObject touchedEnemy;
@@ -40,11 +42,15 @@ public class TouchScript : BaseScript {
 		clearCheckNum ();
 		Enemy = GameObject.Find ("Enemy");
 		Sound.LoadSe ("bubbled", "bubbled");
+		defaultColor = linePrefab.gameObject.GetComponent<SpriteRenderer>().color;
+		clr = defaultColor;
 
 		gameOverScript = GameObject.Find ("GameManager").GetComponent<GameOverScript> ();
 	}
 
 	void clearCheckNum(){
+		linePrefab.gameObject.GetComponent<SpriteRenderer> ().color = defaultColor;
+		clr = defaultColor;
 		checkStepPoint[0] = new Vector3 (0,0,0); checkStepPoint [1] = new Vector3(0,0,0);tmpFlag = false;
 		checkRoundPoint [0] = new Vector3 (1000,0,0); checkRoundPoint [1] = new Vector3(0,-1000,0);
 		checkRoundPoint [2] = new Vector3(-1000,0,0); checkRoundPoint [3] = new Vector3(0,1000,0);
@@ -58,7 +64,7 @@ public class TouchScript : BaseScript {
 
 
 
-	private Color clr;
+
 	void drawLine(){
 
 		if(Input.GetMouseButtonDown(0))
@@ -115,14 +121,10 @@ public class TouchScript : BaseScript {
 			}
 
 			if((endPos-startPos).magnitude > lineLength){
-				//clr += new Color (1, 0, 10);
-				//linePrefab.GetComponent<SpriteRenderer> ().color = clr;
-				/*
-				if (tmpFlag) {
-					linePrefab.GetComponent<SpriteRenderer> ().color = new Color (100, 0, 0);
-				} else {
-					linePrefab.GetComponent<SpriteRenderer> ().color = new Color (0, 100, 0);
-				}*/
+				clr += new Color (0.1f, 0.05f, 0.01f);
+				print (clr);
+				linePrefab.GetComponent<SpriteRenderer> ().color = clr;
+
 
 				GameObject obj = Instantiate(linePrefab, transform.position, transform.rotation) as GameObject;
 				obj.transform.position = (startPos+endPos)/2;
