@@ -1,11 +1,18 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Title/StageSelectScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Main/PlayerScript.cs">
     <Files>
-      <File FileName="Assets/Scripts/Title/StageSelectScript.cs" Line="27" Column="45" />
-      <File FileName="Assets/Scripts/Main/BatScript.cs" Line="40" Column="20" />
-      <File FileName="Assets/Scripts/Main/TouchScript.cs" Line="145" Column="32" />
-      <File FileName="Assets/Scripts/Main/AnimationScript.cs" Line="28" Column="38" />
+      <File FileName="Assets/Scripts/Stage/StageSelectScript.cs" Line="109" Column="17" />
+      <File FileName="Assets/Scripts/Stage/ShoppingScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Main/GameManagerScript.cs" Line="42" Column="1" />
+      <File FileName="Assets/Scripts/Main/PlayerScript.cs" Line="111" Column="1" />
+      <File FileName="Assets/Scripts/Main/CheckPointScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Main/TouchScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Stage/AdScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Main/ClickHandler.cs" Line="13" Column="17" />
+      <File FileName="Assets/Scripts/Stage/GameOverSceneScript.cs" Line="9" Column="29" />
+      <File FileName="Assets/Scripts/Main/GameOverScript.cs" Line="62" Column="41" />
+      <File FileName="Assets/Scripts/Main/CameraScript.cs" Line="19" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

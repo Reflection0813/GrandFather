@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using UnityEngine.Advertisements;
 using System.Collections;
 
 public class GameOverScript : MonoBehaviour {
@@ -11,6 +13,9 @@ public class GameOverScript : MonoBehaviour {
 
 	private bool gameOverFlag = false;
 
+	public Button continueButton;
+	public Button quitButton;
+
 	// Use this for initialization
 	void Start () {
 		gameOverText.color = new Color (255, 255, 255, 0);
@@ -18,6 +23,14 @@ public class GameOverScript : MonoBehaviour {
 
 
 		Sound.LoadBgm ("end", "end");
+	}
+
+	void Update(){
+		/*
+		if (gameOverFlag) {
+			if(Input.GetMouseButtonUp(0))
+				SceneManager.LoadScene("StageSelect");
+		}*/
 	}
 
 	void OnGUI(){
@@ -35,11 +48,50 @@ public class GameOverScript : MonoBehaviour {
 
 	public void GameOver(){
 		if (!gameOverFlag) {
+			//Time.timeScale = 0;
+
+			if (Advertisement.IsReady()) {
+				Advertisement.Show ();
+			}
+
 			gameOverFlag = true;
 			StartCoroutine (TransScene ());
 			Sound.PlayBgm ("end");
+
+			if (GameManagerScript.playerNum <= 0) {
+				SceneManager.LoadScene ("GameOver");
+			} else {
+				continueButton.gameObject.SetActive (true);
+				quitButton.gameObject.SetActive (true);
+			}
+
 		}
+
 	}
+
+	public void continueStage(){
+		//ゲームオーバーでコンティニューボタンを選んだ際、チェックポイントを通過していれば
+		//checkPointというキーに１を代入しておく
+		//これは、ステージセレクト画面からステージの内容へと飛ぶ際に0を代入する。
+		if (GameManagerScript.passedCheckPoint) {
+			PlayerPrefs.SetInt ("checkPoint", 1);
+		}
+
+		GameManagerScript.playerNum -= 1;
+		GameManagerScript.Save();
+		SceneManager.LoadScene ("stage" + GameManagerScript.playingStage.ToString());
+	}
+
+	public void quitStage(){
+
+		SceneManager.LoadScene ("StageSelect");
+	}
+
+	public bool getGameOverFlag(){
+		return gameOverFlag;
+	}
+
+
 
 	private IEnumerator TransScene(){
 		isFading = true;
@@ -50,4 +102,7 @@ public class GameOverScript : MonoBehaviour {
 			yield return 0;
 		}
 	}
+
+
+
 }
