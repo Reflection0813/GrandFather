@@ -74,7 +74,7 @@ public class BatScript :EnemyScript {
 		} else if (enemyKind == 1) {
 			playerPosition = player.transform.position;
 			//print (playerPosition);print (gameObject.transform.position);
-			if(pointNear(playerPosition,gameObject.transform.position,10)){
+			if(pointNear(playerPosition,gameObject.transform.position,10) && Time.timeScale != 0){
 				transform.position = Vector3.Lerp (transform.position, playerPosition, homingSpeed);
 			}
 		}

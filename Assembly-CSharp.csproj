@@ -128,6 +128,9 @@
      <Compile Include="Assets\Scripts\Main\GameManagerScript.cs" />
      <Compile Include="Assets\Scripts\Main\GameOverScript.cs" />
      <Compile Include="Assets\Scripts\Main\JumpScript.cs" />
+     <Compile Include="Assets\Scripts\Main\MessageScript.cs" />
+     <Compile Include="Assets\Scripts\Main\PlayerBodyScript.cs" />
+     <Compile Include="Assets\Scripts\Main\PlayerHeadScript.cs" />
      <Compile Include="Assets\Scripts\Main\PlayerScript.cs" />
      <Compile Include="Assets\Scripts\Main\Sound.cs" />
      <Compile Include="Assets\Scripts\Main\StageClearScript.cs" />

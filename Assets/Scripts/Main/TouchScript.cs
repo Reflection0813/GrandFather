@@ -122,7 +122,7 @@ public class TouchScript : BaseScript {
 
 			if((endPos-startPos).magnitude > lineLength){
 				clr += new Color (0.1f, 0.05f, 0.01f);
-				print (clr);
+				//print (clr);
 				linePrefab.GetComponent<SpriteRenderer> ().color = clr;
 
 

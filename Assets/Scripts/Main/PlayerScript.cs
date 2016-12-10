@@ -9,22 +9,21 @@ public class PlayerScript : BaseScript {
 	public Sprite almostStumble;
 	private bool stumbleFlag = false;
 	private Animator animator;
-
 	private float rotateExtent;
-
 	public float walkSpeed = 0.5f;
 	Rigidbody2D rigidbody;
 
+	//特に何もない場合はtrue messageなどがある場合はfalse
+	public bool regular;
 	//1 is right, -1 is left
-	private int direction = 1;
-
-	private bool muteki = false;
+	public int direction = 1;
 
 	//GameOver
 	private GameOverScript gameOverScript;
 	private GameManagerScript gameManagerScript;
-
+	private bool muteki = false;
 	//
+	private MessageScript messageScript;
 	private GameObject gameManager;
 
 	// Use this for initialization
@@ -34,7 +33,9 @@ public class PlayerScript : BaseScript {
 		gameManager = GameObject.Find ("GameManager");
 		gameOverScript = gameManager.GetComponent<GameOverScript> ();
 		gameManagerScript = gameManager.GetComponent<GameManagerScript> ();
+		messageScript = gameManager.GetComponent<MessageScript> ();
 
+		regular = true;
 		Sound.LoadSe ("down", "down");
 		Sound.LoadBgm ("muteki", "muteki");
 
@@ -42,7 +43,7 @@ public class PlayerScript : BaseScript {
 	
 	// Update is called once per frame
 	void Update () {
-		if (!gameOverScript.getGameOverFlag ()) {
+		if (!gameOverScript.getGameOverFlag () && regular) {
 			Move ();
 		}
 	}
@@ -88,6 +89,7 @@ public class PlayerScript : BaseScript {
 				Destroy (col.gameObject);
 			}
 		}
+			
 		if (col.gameObject.tag == "Star") {
 			Destroy (col.gameObject);
 			Sound.PlayBgm ("muteki");
@@ -97,20 +99,37 @@ public class PlayerScript : BaseScript {
 			Invoke ("invincibleOver", 8);
 		}
 
+		if (col.gameObject.tag == "Line") {
+			print ("col = " + col.transform.position.y);print ("pla = " + gameObject.transform.position.y );
+			if (col.transform.position.y > gameObject.transform.position.y - 1) {
+				directionChange ();
+			}
+		}
+
 
 
 	}
 
 	void OnTriggerEnter2D(Collider2D col){
-		if (col.gameObject.tag == "Line" || col.gameObject.tag == "Obstacle" || col.gameObject.tag == "Ground" )
-			directionChange ();	
+		//print ("trigger");
+		if(col.gameObject.tag == "Line" || col.gameObject.tag == "Obstacle")
+			directionChange();
+
 		if (col.gameObject.tag == "Bottom")
 			gameOverScript.GameOver ();
-		
+
 		if (col.gameObject.tag == "Flag"){
 			gameManager.GetComponent<StageClearScript>().stageClear();
 
 		}
+
+		if (col.gameObject.tag == "Senbei"){
+			Destroy (col.gameObject);
+			GameManagerScript.senbeiNum += 1;
+			gameManagerScript.DisplayReLoad ();
+
+		}
+
 
 		if (col.gameObject.tag == "CheckPoint") {
 			Sound.LoadSe ("checkPoint", "passedCheckPoint");
@@ -120,12 +139,13 @@ public class PlayerScript : BaseScript {
 			GameManagerScript.passedCheckPoint = true;
 		}
 
-		if (col.gameObject.tag == "Senbei") {
-			Destroy (col.gameObject);
-			GameManagerScript.senbeiNum += 1;
-			gameManagerScript.DisplayReLoad ();
+		if (col.gameObject.tag == "Message") {
+			messageScript.getMessage (col.gameObject.name);
 		}
+
 	}
+
+
 
 	void OnTriggerStay2D(Collider2D col){
 		if ((rotateExtent > 70 && rotateExtent < 100) || (rotateExtent < 300 && rotateExtent > 260)) {

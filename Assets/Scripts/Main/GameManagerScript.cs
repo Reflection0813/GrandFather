@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class GameManagerScript : MonoBehaviour {
+
 	public Text leftSenbei;
 	public Text leftPlayer;
 
@@ -16,6 +17,13 @@ public class GameManagerScript : MonoBehaviour {
 
 	private GameObject player;
 	private GameObject checkPoint;
+
+	public enum GameMode{
+		NORMAL,
+		STOP,
+		DEAD,
+		MESSAGE
+	}
 
 	// Use this for initialization
 	void Start () {
@@ -31,6 +39,12 @@ public class GameManagerScript : MonoBehaviour {
 
 		Load ();
 		DisplayReLoad ();
+	}
+
+
+	public void changeGameMode(string newGameMode){
+		//GameMode gameMode = newGameMode;
+
 	}
 
 	private void putPlayerOnAccuratePosition(){
@@ -67,6 +81,7 @@ public class GameManagerScript : MonoBehaviour {
 		int playerLeft = PlayerPrefs.GetInt ("playerNum");
 		GameManagerScript.playerNum = playerLeft;
 	}
+		
 
 	private void LoadSound(){
 		Sound.LoadBgm ("default", "bgm_1");
