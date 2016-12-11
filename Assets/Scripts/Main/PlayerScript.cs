@@ -100,7 +100,7 @@ public class PlayerScript : BaseScript {
 		}
 
 		if (col.gameObject.tag == "Line") {
-			print ("col = " + col.transform.position.y);print ("pla = " + gameObject.transform.position.y );
+			//print ("col = " + col.transform.position.y);print ("pla = " + gameObject.transform.position.y );
 			if (col.transform.position.y > gameObject.transform.position.y - 1) {
 				directionChange ();
 			}

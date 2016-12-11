@@ -9,6 +9,7 @@ public class MessageScript : MonoBehaviour {
 
 	private int tmp = 0;
 	public GameObject[] conductor = new GameObject[10];
+	private GameObject instantiatedConductor;
 
 	private FadeInSpriteScript fadeInSpriteScript;
 	private bool isMessaged = false;
@@ -33,9 +34,8 @@ public class MessageScript : MonoBehaviour {
 		//fadeInSpriteScript.Play ();
 		print(int.Parse(messageTriggerNum));
 		messageText.text = messages [int.Parse(messageTriggerNum)];
-
-		Instantiate(conductor [int.Parse (messageTriggerNum)]);
-		tmp = int.Parse (messageTriggerNum);
+		print ("Prefab/finger/" + messageTriggerNum);
+		instantiatedConductor = Instantiate(Resources.Load("Prefab/finger/" + messageTriggerNum)) as GameObject;
 
 		player.GetComponent<PlayerScript> ().regular = false;
 		isMessaged = true;
@@ -43,10 +43,9 @@ public class MessageScript : MonoBehaviour {
 
 	public void foldMessage(){
 		//fadeout
-		Time.timeScale = 1;
 		player.GetComponent<PlayerScript> ().regular = true;
 		messageBoard.gameObject.SetActive(false);
-		//Destroy (conductor [tmp]);
+		Destroy(instantiatedConductor);
 		messageText.text = "";
 		isMessaged = false;
 	}
