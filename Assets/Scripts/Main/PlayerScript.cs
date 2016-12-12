@@ -51,7 +51,7 @@ public class PlayerScript : BaseScript {
 	void Move(){
 		Player.transform.position += new Vector3(walkSpeed * direction,0,0);
 		rotateExtent = transform.localEulerAngles.z;
-		if ((rotateExtent > 25 && rotateExtent < 90) || (rotateExtent < 335 && rotateExtent > 270 )) {
+		if (rotateExtent > 25 && rotateExtent < 335) {
 			stumbleFlag = true;
 			animator.enabled = false;
 			playerSprite.sprite = almostStumble;
@@ -65,7 +65,7 @@ public class PlayerScript : BaseScript {
 			
 	}
 
-	void directionChange(){
+	public void directionChange(){
 		direction = -1 * direction;
 		playerSprite.flipX = !playerSprite.flipX;
 	}
@@ -99,21 +99,22 @@ public class PlayerScript : BaseScript {
 			Invoke ("invincibleOver", 8);
 		}
 
-		if (col.gameObject.tag == "Line") {
-			//print ("col = " + col.transform.position.y);print ("pla = " + gameObject.transform.position.y );
-			if (col.transform.position.y > gameObject.transform.position.y - 1) {
-				directionChange ();
-			}
+
+		if (col.gameObject.tag == "Obstacle") {
+			directionChange ();
 		}
 
+		print (rotateExtent);
+		if (rotateExtent > 70 && rotateExtent < 290) {
+			if (col.gameObject.tag == "Ground" || col.gameObject.tag == "Line")
+				gameOverScript.GameOver ();
+		}
 
 
 	}
 
 	void OnTriggerEnter2D(Collider2D col){
 		//print ("trigger");
-		if(col.gameObject.tag == "Line" || col.gameObject.tag == "Obstacle")
-			directionChange();
 
 		if (col.gameObject.tag == "Bottom")
 			gameOverScript.GameOver ();
@@ -146,13 +147,13 @@ public class PlayerScript : BaseScript {
 	}
 
 
-
+	/*
 	void OnTriggerStay2D(Collider2D col){
 		if ((rotateExtent > 70 && rotateExtent < 100) || (rotateExtent < 300 && rotateExtent > 260)) {
 			//Sound.PlaySe ("down");
 			gameOverScript.GameOver ();
 		}
-	}
+	}*/
 
 
 }

@@ -86,7 +86,12 @@ public class TouchScript : BaseScript {
 					draggingEnemy = true;
 					col.gameObject.GetComponent<BatScript> ().setTouchedFlag (true);
 					consecutiveDrag = false;
-				} 
+				}
+
+				if (col.gameObject.tag == "Player") {
+					col.gameObject.GetComponent<PlayerScript> ().directionChange ();
+					consecutiveDrag = false;
+				}
 			} 
 
 

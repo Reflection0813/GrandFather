@@ -51,7 +51,7 @@ public class GameOverScript : MonoBehaviour {
 			//Time.timeScale = 0;
 
 			if (Advertisement.IsReady()) {
-				Advertisement.Show ();
+			//	Advertisement.Show ();
 			}
 
 			gameOverFlag = true;
