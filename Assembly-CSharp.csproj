@@ -123,6 +123,7 @@
      <Compile Include="Assets\Scripts\Main\CheckPointScript.cs" />
      <Compile Include="Assets\Scripts\Main\Enemy\BatScript.cs" />
      <Compile Include="Assets\Scripts\Main\Enemy\Boss1Script.cs" />
+     <Compile Include="Assets\Scripts\Main\Enemy\Boss1triggerScript.cs" />
      <Compile Include="Assets\Scripts\Main\Enemy\EnemyScript.cs" />
      <Compile Include="Assets\Scripts\Main\FadeInSpriteScript.cs" />
      <Compile Include="Assets\Scripts\Main\GameManagerScript.cs" />

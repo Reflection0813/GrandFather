@@ -4,6 +4,7 @@ using System.Collections;
 public class Boss1Script : MonoBehaviour {
 	private int HP;
 	private bool invincible = false;
+	Animator animator;
 
 	public GameObject smallBat;
 	public GameObject EnemyEmpty;
@@ -14,15 +15,21 @@ public class Boss1Script : MonoBehaviour {
 	private Vector3 moveVector;
 	//falseは左
 	private bool direction;
+	private float movingArea = 8;
+
+	//shake関連
+	private Vector3 shakeDefaultPosition;
 
 	// Use this for initialization
 	void Start () {
 		insBatNum = 3; HP = 5;
 		Sound.LoadSe ("beatBoss", "beatBoss");
 
+
+		animator = gameObject.GetComponent<Animator> ();
 		spriteRenderer = gameObject.GetComponent<SpriteRenderer> ();
 		offset = gameObject.transform.position;
-		moveVector = new Vector3 (0.1f, 0, 0);
+		moveVector = new Vector3 (0.08f, 0, 0);
 		direction = false;
 	}
 	
@@ -30,10 +37,13 @@ public class Boss1Script : MonoBehaviour {
 	void Update () {
 		normalMove ();
 
-		if (gameObject.transform.position.x <= offset.x - 10 || gameObject.transform.position.x >= offset.x + 10) {
+		if (gameObject.transform.position.x <= offset.x - movingArea || gameObject.transform.position.x >= offset.x + movingArea) {
+			//animator.SetBool ("instantiate", true);
+			//shake ();
 			spriteRenderer.flipX = !spriteRenderer.flipX;
 			instantiateSmallBats ();
 			direction = !direction;
+
 		}
 			
 
@@ -74,6 +84,7 @@ public class Boss1Script : MonoBehaviour {
 			StartCoroutine (blink (0));
 		}
 	}
+
 
 
 	private IEnumerator blink(int blkCnt){
