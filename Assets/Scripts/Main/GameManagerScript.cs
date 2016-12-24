@@ -7,8 +7,6 @@ public class GameManagerScript : MonoBehaviour {
 	public Text leftSenbei;
 	public Text leftPlayer;
 
-	public static bool[] stageClear = new bool[21];
-
 	public static int playerNum;
 	public static int senbeiNum;
 	public static bool passedCheckPoint;
@@ -43,7 +41,6 @@ public class GameManagerScript : MonoBehaviour {
 
 
 	public void changeGameMode(string newGameMode){
-		//GameMode gameMode = newGameMode;
 
 	}
 
@@ -58,15 +55,9 @@ public class GameManagerScript : MonoBehaviour {
 		leftSenbei.text = "×" + senbeiNum.ToString();
 	}
 
+	//呼び出すのは
+	//continue時とゲームクリア
 	public static void Save(){
-		int i = 1;
-
-		while (stageClear [i] == true) {
-			print (i);
-			i += 1;
-		}
-		//clearedStageはクリアしたステージまでを１始まりで示す
-		PlayerPrefs.SetInt ("clearedStage", i);
 		PlayerPrefs.SetInt ("senbeiNum", senbeiNum);
 		PlayerPrefs.SetInt ("playerNum", playerNum);
 
@@ -74,10 +65,6 @@ public class GameManagerScript : MonoBehaviour {
 	}
 
 	public static void Load(){
-		/*
-		int senbeiLeft = PlayerPrefs.GetInt ("senbeiNum");
-		GameManagerScript.senbeiNum = senbeiLeft;
-		*/
 		int playerLeft = PlayerPrefs.GetInt ("playerNum");
 		GameManagerScript.playerNum = playerLeft;
 	}

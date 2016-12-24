@@ -18,7 +18,8 @@ public class StageClearScript : MonoBehaviour {
 	}
 
 	private void nextStage(){
-		GameManagerScript.stageClear [SceneManager.GetActiveScene().buildIndex] = true;
+		//ステージクリアのセーブについてはこのスクリプトのみが受け持つ
+		PlayerPrefs.SetInt ("clearedStage", SceneManager.GetActiveScene().buildIndex);
 		GameManagerScript.Save ();
 		SceneManager.LoadScene("StageSelect");
 	}

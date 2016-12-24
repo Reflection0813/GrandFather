@@ -84,7 +84,7 @@ public class GameOverScript : MonoBehaviour {
 
 	public void quitStage(){
 
-		SceneManager.LoadScene ("StageSelect");
+		SceneManager.LoadScene ("World1");
 	}
 
 	public bool getGameOverFlag(){

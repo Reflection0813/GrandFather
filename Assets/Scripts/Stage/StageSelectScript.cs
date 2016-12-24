@@ -25,14 +25,18 @@ public class StageSelectScript : MonoBehaviour {
 
 	//ステージ見た目系
 	public GameObject[] mass = new GameObject[5];
+	int clearedStage;
 
 	// Use this for initialization
 	void Start () {
 		Sound.LoadBgm ("GeneralBGM", "stage1to5");
 		Sound.PlayBgm ("GeneralBGM");
-		playerPosition = 0;
+		playerPosition = 1;
 		entering = false; onMouseOver = false;
 		targetPosition = player.gameObject.transform.position;
+
+		clearedStage = PlayerPrefs.GetInt ("clearedStage");
+		print ("clearedStage = " + clearedStage + " playerPositon = " + playerPosition);
 		MapLoad ();
 	}
 
@@ -48,7 +52,7 @@ public class StageSelectScript : MonoBehaviour {
 
 			offset = player.transform.position;
 			if (touchPos.x < Screen.width/2) {
-				if (playerPosition > 0) {
+				if (playerPosition > 1) {
 					stageNum -= 1;
 					playerPosition -= 1;
 					targetPosition = offset - new Vector3 (10, 0, 0);
@@ -56,7 +60,7 @@ public class StageSelectScript : MonoBehaviour {
 					player.GetComponent<SpriteRenderer> ().flipX = false;
 				}
 			} else {
-				if (playerPosition < 4) {
+				if (playerPosition < 5 && playerPosition <= clearedStage ) {
 					stageNum += 1;
 					playerPosition += 1;
 					targetPosition = offset + new Vector3 (10, 0, 0);
@@ -70,23 +74,7 @@ public class StageSelectScript : MonoBehaviour {
 		}
 			
 	}
-	/*
-	private bool RayHit(){
-		Ray ray = new Ray (transform.position, transform.forward);
-		Ray mouseRay = Camera.main.ScreenPointToRay (Input.mousePosition);
 
-		RaycastHit2D hit = Physics2D.Raycast ((Vector2)ray.origin, (Vector2)ray.direction, 10.0f);
-
-		if (hit.collider) {
-			print ("aaaa");
-			if (hit.collider.gameObject.tag == "Button" || hit.collider.gameObject.tag == "Panel") {
-				return true;
-			}
-		}
-		
-
-		return false;
-	}*/
 
 	public void enterTheStage(){
 		if (!moving) {
@@ -130,9 +118,8 @@ public class StageSelectScript : MonoBehaviour {
 
 
 	void MapLoad(){
-		int clearedStage = PlayerPrefs.GetInt ("clearedStage");
-		for (int i = 0; i < clearedStage - 1; i++) {
-			print ("i = " + i);
+		for (int i = 0; i < clearedStage; i++) {
+			print ("cleared: i = " + i);
 			mass [i].GetComponent<MassScript> ().changeColor ();
 		}
 
