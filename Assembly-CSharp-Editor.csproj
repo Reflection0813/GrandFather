@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{A3CEDF1F-8493-9B8A-5929-4497F9DE8124}</ProjectGuid>
+    <ProjectGuid>{283D7205-2FCE-4035-C304-394104A50E2B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
@@ -179,6 +179,7 @@
      <None Include="Assets\Standard Assets\Effects\TessellationShaders\Shaders\BumpedSpecularDisplacement.shader" />
      <None Include="Assets\Ferr\2DTerrain\Shaders\LightmapColored.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAA3Console.shader" />
+     <None Include="Assets\therQuest\Assets\Ferr\Common\Data\cache.txt" />
      <None Include="Assets\Ferr\2DTerrain\Shaders\LitColoredTransparent.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAAPreset2.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlurAndFlares.shader" />
@@ -231,9 +232,9 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{8F42A1A8-C0A8-D082-EF53-417CDB9CCF13}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+      <Project>{C62BE029-E7E2-91B0-20C7-F514A1B2D05A}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
     <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{6F75C062-6F91-6F2D-D9EE-C5DC577EA16D}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
+      <Project>{4290C169-A481-D0D3-B9EC-0ADF2195AEE4}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

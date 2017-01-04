@@ -1,15 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyScript : BaseScript {
+public class EnemyScript : MonoBehaviour {
+	//全敵共通の処理
 
-
-
-	public int Damage(int HP){
-		return HP - 1;
+	// Use this for initialization
+	void Start () {
+	
 	}
-
-
-
-
+	
+	// Update is called once per frame
+	void Update () {
+	
+	}
 }

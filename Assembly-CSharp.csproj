@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{6F75C062-6F91-6F2D-D9EE-C5DC577EA16D}</ProjectGuid>
+    <ProjectGuid>{4290C169-A481-D0D3-B9EC-0ADF2195AEE4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -116,7 +116,6 @@
      <Compile Include="Assets\Ferr\Common\Scripts\WebMessager.cs" />
      <Compile Include="Assets\Scripts\Blur.cs" />
      <Compile Include="Assets\Scripts\Main\AnimationScript.cs" />
-     <Compile Include="Assets\Scripts\Main\BaseScript.cs" />
      <Compile Include="Assets\Scripts\Main\BlockScript.cs" />
      <Compile Include="Assets\Scripts\Main\ButtonScript.cs" />
      <Compile Include="Assets\Scripts\Main\CameraScript.cs" />
@@ -124,8 +123,11 @@
      <Compile Include="Assets\Scripts\Main\Enemy\BatScript.cs" />
      <Compile Include="Assets\Scripts\Main\Enemy\Boss1Script.cs" />
      <Compile Include="Assets\Scripts\Main\Enemy\Boss1triggerScript.cs" />
+     <Compile Include="Assets\Scripts\Main\Enemy\CactusScript.cs" />
      <Compile Include="Assets\Scripts\Main\Enemy\EnemyScript.cs" />
+     <Compile Include="Assets\Scripts\Main\Enemy\RockScript.cs" />
      <Compile Include="Assets\Scripts\Main\FadeInSpriteScript.cs" />
+     <Compile Include="Assets\Scripts\Main\Functions.cs" />
      <Compile Include="Assets\Scripts\Main\GameManagerScript.cs" />
      <Compile Include="Assets\Scripts\Main\GameOverScript.cs" />
      <Compile Include="Assets\Scripts\Main\JumpScript.cs" />
@@ -248,6 +250,7 @@
      <None Include="Assets\Standard Assets\Effects\TessellationShaders\Shaders\BumpedSpecularDisplacement.shader" />
      <None Include="Assets\Ferr\2DTerrain\Shaders\LightmapColored.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAA3Console.shader" />
+     <None Include="Assets\therQuest\Assets\Ferr\Common\Data\cache.txt" />
      <None Include="Assets\Ferr\2DTerrain\Shaders\LitColoredTransparent.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAAPreset2.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlurAndFlares.shader" />
@@ -264,7 +267,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{8F42A1A8-C0A8-D082-EF53-417CDB9CCF13}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+      <Project>{C62BE029-E7E2-91B0-20C7-F514A1B2D05A}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

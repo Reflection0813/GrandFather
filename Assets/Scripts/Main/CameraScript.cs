@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CameraScript : BaseScript {
+public class CameraScript : MonoBehaviour {
 	public static float adjustment;
 
 	public GameObject bottom;

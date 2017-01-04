@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class PlayerScript : BaseScript {
+public class PlayerScript : MonoBehaviour {
 	public GameObject Player;
 	public SpriteRenderer playerSprite;
 	public Sprite normalSprite;

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BatScript :EnemyScript {
+public class BatScript :MonoBehaviour {
 	public TouchScript touchScript;
 
 	private int HP = 1;
@@ -42,6 +42,9 @@ public class BatScript :EnemyScript {
 		case "Bat2":
 			enemyKind = 1;
 			break;
+		case "Bat3":
+			enemyKind = 2;
+			break;
 		}
 		//print (animator);
 	}
@@ -74,8 +77,13 @@ public class BatScript :EnemyScript {
 		} else if (enemyKind == 1) {
 			playerPosition = player.transform.position;
 			//print (playerPosition);print (gameObject.transform.position);
-			if(pointNear(playerPosition,gameObject.transform.position,10) && Time.timeScale != 0){
+			if (Functions.pointNear (playerPosition, gameObject.transform.position, 10) && Time.timeScale != 0) {
 				transform.position = Vector3.Lerp (transform.position, playerPosition, homingSpeed);
+			}
+		} else if (enemyKind == 2) {
+			playerPosition = player.transform.position;
+			if (gameObject.transform.position.x - playerPosition.x < 15) {
+				transform.position += new Vector3 (-0.1f, 0, 0);
 			}
 		}
 
@@ -111,7 +119,7 @@ public class BatScript :EnemyScript {
 			spriteRenderer.sprite = null;
 			Instantiate (brokenBubble,gameObject.transform.position,Quaternion.identity);
 			Destroy (this.gameObject);
-			col.gameObject.GetComponent<BatScript> ().Damage(2);
+			col.gameObject.GetComponent<BatScript> ().Damage(1);
 			touchScript.setDraggingEnemy (false);
 			print (col.gameObject.GetComponent<BatScript> ().HP);
 		}

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TouchScript : BaseScript {
+public class TouchScript : MonoBehaviour {
 
 
 	public GameObject linePrefab;
@@ -191,7 +191,8 @@ public class TouchScript : BaseScript {
 
 		//print ("horizon = " + horizontalCenter); print ("vertical = " + verticalCenter);
 		//print (pointNear (horizontalCenter, verticalCenter, 0.8f)); print (near (Mathf.Abs (checkRoundPoint [0].x - checkRoundPoint [2].x), Mathf.Abs (checkRoundPoint [1].y - checkRoundPoint [3].y), 2));
-		return pointNear (horizontalCenter, verticalCenter, 0.8f) && near(Mathf.Abs(checkRoundPoint[0].x - checkRoundPoint[2].x), Mathf.Abs(checkRoundPoint[1].y - checkRoundPoint[3].y),2);
+		return Functions.pointNear (horizontalCenter, verticalCenter, 0.8f) && Functions.near(Mathf.Abs(checkRoundPoint[0].x - checkRoundPoint[2].x), Mathf.Abs(checkRoundPoint[1].y - checkRoundPoint[3].y),2);
+
 	}
 
 	private bool checkIncludeEnemy(){
@@ -215,21 +216,7 @@ public class TouchScript : BaseScript {
 		float line_two = checkRoundPoint [2].x - checkRoundPoint [0].x;
 
 
-		/*
-		print ("endPos = " + endPos);
-		print ("checkStepPoint [0] = " + checkStepPoint [0]);
-		print ("checkStepPoint [1] = " + checkStepPoint [1]);
-		print ("checkStepPoint [2] = " + checkRoundPoint [2]);
-		print ("checkStepPoint [3] = " + checkRoundPoint [0]);
-
-		print ("line_One = " + line_one);
-		print ("line_two = " + line_two);
-
-		print ("line_one < line_two" + (line_one < line_two));
-		print ("pointNear(checkStepPoint[0],endPos,2" + pointNear (checkStepPoint [0], endPos, 0.5f));
-		*/
-
-		return ((line_one < line_two) && pointNear(checkStepPoint[0],endPos,0.5f) && line_one > 1.4f);
+		return ((line_one < line_two) && Functions.pointNear(checkStepPoint[0],endPos,0.5f) && line_one > 1.4f);
 	}
 
 
